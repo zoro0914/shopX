@@ -19,7 +19,7 @@ app.use(cookieParser())
 app.use(cors({
  origin: process.env.NODE_ENV === 'production' 
    ? [process.env.FRONTEND_URL] 
-   : ["https://shopx-2.onrender.com", "http://localhost:5174"],
+   : ["https://shopx-2.onrender.com", "https://shopx-admin-zjq1.onrender.com"],
  credentials:true
 }))
 
