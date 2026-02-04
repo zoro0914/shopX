@@ -1,0 +1,31 @@
+import React, { useContext, useEffect, useState } from 'react'
+import Title from './Title'
+import { shopDataContext } from '../context/ShopContext'
+import Card from './Card'
+
+function LatestCollection() {
+    let {products} = useContext(shopDataContext)
+    let [latestProducts,setLatestProducts] = useState([])
+
+    useEffect(()=>{
+    setLatestProducts(products.slice(0,8));
+    },[products])
+
+  return (
+    <div className='bg-white min-h-screen'>
+      <div className='w-[100%] text-center  sm:mt-12 md:mt-[50px] px-4'>
+        <Title text1={"LATEST"} text2={"COLLECTIONS"}/>
+        <p className='w-[100%] m-auto text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl px-2 sm:px-4 text-black'>Step Into Style – New Collection Dropping This Season!</p>
+      </div>
+      <div className='w-[100%] px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10 lg:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 justify-items-center'>
+        {
+            latestProducts.map((item,index)=>(
+                <Card key={index} name={item.name} image={item.image1} id={item._id} price={item.price}/>
+            ))
+        }
+      </div>
+    </div>
+  )
+}
+
+export default LatestCollection
