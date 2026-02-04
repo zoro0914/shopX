@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 
 export const authDataContext = createContext()
 function AuthContext({children}) {
-    let serverUrl = "http://localhost:8000"
+    let serverUrl = "https://shopx-1-z0x4.onrender.com"
 
     let value = {
       serverUrl
@@ -12,7 +12,6 @@ function AuthContext({children}) {
         <authDataContext.Provider value={value}>
             {children}
         </authDataContext.Provider>
-      
     </div>
   )
 }
